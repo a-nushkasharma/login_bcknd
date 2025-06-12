@@ -5,6 +5,9 @@ const cors = require('cors');
 const userRoutes = require('./routes/userRoutes'); // Import your user routes
 const surveyRoutes = require('./routes/surveyRoutes');//import survey routes
 
+app.get('/', (_req, res) => {
+  res.sendStatus(200);
+});
 
 const app = express();
 
