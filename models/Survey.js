@@ -1,41 +1,29 @@
-// models/Survey.js
+// models/surveyModel.js
 const mongoose = require('mongoose');
 
 const surveySchema = new mongoose.Schema({
-  fullName: { type: String, required: true },
-  gender: { type: String, enum: ['Male', 'Female', 'Others'] },
-  age: { type: Number },
-  address: { type: String },
-  state: { type: String, required: true },
-  hasChildren: { type: String, enum: ['yes', 'no'], required: true },
-  childrenCount: { type: Number },
-  childrenAge: { type: Number },
-
-  // New Fields
-  kidsUseTech: { type: String, enum: ['yes', 'no'] },
-  screenTime: { type: Number }, // average screen time in hours
-  kidsUseTechPurposes: [{ type: String }],
+  fullName: String,
+  gender: { type: String, enum: ['male', 'female'] },
+  age: Number,
+  address: String,
+  state: String,
+  hasChildren: String,
+  childrenCount: Number,
+  childrenAge: Number,
+  kidsUseTech: String,
   devicesUsed: [String],
-  otherDevice: { type: String },
-  otherPurpose: { type: String },
-
-  troubledByUsage: { type: String, enum: ['yes', 'no'] },
-
-  techServiceUsage: { type: String },
-  techService: { type: String },
-  serviceLack: { type: String },
-  palanamExpectation: { type: String },
-  expectedServices: { type: String },
-
-  troubledByOwnUsage: { type: String },
-  issuesFaced: { type: String },
-  majorConcerns: [{ type: String }],
-  otherConcern: { type: String },
-
-  palanamExpectations: [{ type: String }],
-  additionalRequirements: { type: String },
-
-  createdAt: { type: Date, default: Date.now }
-});
+  otherDevices: String,
+  screenTime: Number,
+  usagePurpose: [String],
+  otherUsagePurpose: String,
+  troubledByUsage: String,
+  usingMeasures: String,
+  measureDetails: String,
+  concerns: [String],
+  otherConcerns: String,
+  solution: {type: String},
+  expectations: [String],
+  otherExpectations: String,
+}, { timestamps: true });
 
 module.exports = mongoose.model('Survey', surveySchema);
